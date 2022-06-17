@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+namespace GAState\Tools\D2L\Model\User;
+
+use GAState\Tools\D2L\Model\D2LModel;
+
+/**
+ * This block provides the parameters necessary for copying an existing role.
+ * 
+ * @package GAState\Tools\D2L\Model\User
+ * @access public
+ * @see https://docs.valence.desire2learn.com/res/user.html#User.RoleCopyData
+ */
+class UserRoleCopyDataModel extends D2LModel
+{
+    /**
+     * @var string $RoleName
+     */
+    public string $RoleName = '';
+}

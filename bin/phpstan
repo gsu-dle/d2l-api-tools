@@ -1,0 +1,5 @@
+#!/bin/bash
+
+clear
+$(dirname "$0")/../vendor/bin/phpstan clear-result-cache
+$(dirname "$0")/../vendor/bin/phpstan analyse --level 9 src

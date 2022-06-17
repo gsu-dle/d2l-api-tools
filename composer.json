@@ -1,0 +1,30 @@
+{
+    "name": "gsu-d2l/d2l-api-tools",
+    "description": "D2L API Toolkit",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "GAState\\Tools\\D2L\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Melody Forest",
+            "email": "mforest@gsu.edu"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "ext-curl": "*"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.7",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-strict-rules": "^1.2"
+    },
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    }
+}

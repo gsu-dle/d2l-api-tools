@@ -1,0 +1,7 @@
+# contains API keys
+/tests/Bootstrap.php
+
+composer.phar
+composer.lock
+/vendor/
+/.vscode/
