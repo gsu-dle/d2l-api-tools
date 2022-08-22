@@ -25,7 +25,7 @@ class IPSISAPI extends D2LAPI
             action: 'POST',
             route: '/logs/', 
             params: ['sourceSystemId' => $sourceSystemId],
-            data: json_encode($filters)
+            data: $filters
         );
 
         if (!is_object($response->data)) {
