@@ -43,6 +43,7 @@ $pagedLogInfo = $ipsisAPI->getLogEntries(
     sourceSystemId: '18',
     filters: new IPSISLogInfoRequestModel(
         values: (object) [
+            "bookmark" => null,
             "Search" => null,
             "BatchIds" => [],
             "SortOrder" => "Descending",

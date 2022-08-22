@@ -9,6 +9,11 @@ use GAState\Tools\D2L\Model\D2LModel;
 class IPSISLogInfoRequestModel extends D2LModel
 {
     /**
+     * @var string|null $Bookmark
+     */
+    public ?string $bookmark = null;
+
+    /**
      * @var string|null $Search
      */
     public ?string $Search = null;
