@@ -44,7 +44,7 @@ class D2L
      * @param string $userID
      * @param string $userKey
      * @param string $oauthToken
-     * @param array<string,float>|null $versions
+     * @param array<string,float|string>|null $versions
      * @param int $rootOrgUnit
      */
     public function __construct(
@@ -65,7 +65,7 @@ class D2L
     }
 
     /**
-     * @return array<string,float>
+     * @return array<string,float|string>
      */
     public function getVersions(): array
     {
@@ -81,6 +81,11 @@ class D2L
                 }
             }
         }
+
+        if (!isset($versions['ipsis'])) {
+            $versions['ipsis'] = 'unstable';
+        }
+
         return $versions;
     }
 

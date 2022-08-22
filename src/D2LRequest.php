@@ -16,9 +16,9 @@ class D2LRequest
     public string $product;
 
     /**
-     * @var float $version
+     * @var float|string $version
      */
-    public float $version;
+    public float|string $version;
 
     /**
      * @var string $action
