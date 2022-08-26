@@ -18,7 +18,7 @@ class D2LRequest
     /**
      * @var float|string $version
      */
-    public float|string $version;
+    public string $version;
 
     /**
      * @var string $action
@@ -70,7 +70,7 @@ class D2LRequest
         ?string $outputFile = null
     ) {
         $this->product = $product;
-        $this->version = $d2l->versions[$product] ?? 1.0; // TODO: should probably throw an error instead of default val
+        $this->version = $d2l->versions[$product] ?? '1.0'; // TODO: should probably throw an error instead of default val
         $this->action = $action;
         $this->outputFile = $outputFile;
 

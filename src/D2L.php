@@ -44,7 +44,7 @@ class D2L
      * @param string $userID
      * @param string $userKey
      * @param string $oauthToken
-     * @param array<string,float|string>|null $versions
+     * @param array<string,string>|null $versions
      * @param int $rootOrgUnit
      */
     public function __construct(
@@ -65,7 +65,7 @@ class D2L
     }
 
     /**
-     * @return array<string,float|string>
+     * @return array<string,string>
      */
     public function getVersions(): array
     {
@@ -77,7 +77,7 @@ class D2L
         if (is_array($response->data)) {
             foreach ($response->data as $product) {
                 if (is_object($product) && isset($product->ProductCode, $product->LatestVersion)) {
-                    $versions[strval($product->ProductCode)] = round(floatval($product->LatestVersion), 2);
+                    $versions[strval($product->ProductCode)] = $product->LatestVersion;
                 }
             }
         }
