@@ -135,19 +135,21 @@ class EnrollmentAPI extends D2LAPI
      * Get a user’s enrollment in a provided org unit.
      * 
      * @param int $userId User ID
+     * @param int orgUnitId Org Unit ID
      * 
      * @return EnrollmentDataModel 
      * 
      * @see https://docs.valence.desire2learn.com/res/enroll.html#get--d2l-api-lp-(version)-enrollments-users-(userId)-orgUnits-(orgUnitId)
      */
     public function getEnrollment(
-        int $userId
+        int $userId,
+        int $orgUnitId
     ): EnrollmentDataModel {
 
         $response = $this->callAPI(
             product: 'lp',
             action: 'GET',
-            route: "/enrollments/users/{$userId}/orgUnits/"
+            route: "/enrollments/users/{$userId}/orgUnits/{$orgUnitId}"
         );
 
         if (!is_object($response->data)) {

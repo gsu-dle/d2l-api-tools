@@ -26,9 +26,12 @@ main: {
         $EnrollmentDataModel->UserId = 2015734;
         $EnrollmentDataModel->RoleId = 783;
 
-         var_dump($EnrollmentAPI->createEnrollment($EnrollmentDataModel));
+        var_dump($EnrollmentAPI->createEnrollment($EnrollmentDataModel));
 
-        
+    
+
+
+
     } catch (D2LResponseException $ex) {
         var_dump($ex->getMessage(), $ex->response->statusCode, $ex->response->data);
     }
