@@ -126,17 +126,59 @@ class EnrollmentAPI extends D2LAPI
     {
     }
 
-    public function getUserEnrollments(int $userId): void
+     
+    public function getUserEnrollments(int $orgUnitId ): void
     {
     }
 
+    /**
+     * Get a user’s enrollment in a provided org unit.
+     * 
+     * @param int $userId User ID
+     * 
+     * @return EnrollmentDataModel 
+     * 
+     * @see https://docs.valence.desire2learn.com/res/enroll.html#get--d2l-api-lp-(version)-enrollments-users-(userId)-orgUnits-(orgUnitId)
+     */
     public function getEnrollment(
-        int $orgUnitId,
         int $userId
-    ): void {
-    }
+    ): EnrollmentDataModel {
 
-    public function createEnrollment(CreateEnrollmentDataModel $newEnrollment): void
+        $response = $this->callAPI(
+            product: 'lp',
+            action: 'GET',
+            route: "/enrollments/users/{$userId}/orgUnits/"
+        );
+
+        if (!is_object($response->data)) {
+            throw new D2LExpectedObjectException(response: $response);
+        }
+
+        return new EnrollmentDataModel(values: $response->data);
+    }
+    
+    /**
+     * Create a user’s enrollment in a provided org unit.
+     * 
+     * @param CreateEnrollmentDataModel $newEnrollment Data for new enrollment.
+     * 
+     * @return EnrollmentDataModel 
+     * 
+     * @see https://docs.valence.desire2learn.com/res/enroll.html#post--d2l-api-lp-(version)-enrollments-
+     */
+    public function createEnrollment(CreateEnrollmentDataModel $newEnrollment): EnrollmentDataModel
     {
+        $response = $this->callAPI(
+            product: 'lp',
+            action: 'POST',
+            route: "/enrollments/",
+            data: $newEnrollment
+        );
+    
+        if (!is_object($response->data)) {
+            throw new D2LExpectedObjectException(response: $response);
+        }
+
+        return new EnrollmentDataModel(values: $response->data);
     }
 }
