@@ -29,7 +29,7 @@ main: {
         var_dump($EnrollmentAPI->createEnrollment($EnrollmentDataModel));
 
     
-
+        var_dump($EnrollmentAPI->getEnrollment(2015734, 2273803));
 
 
     } catch (D2LResponseException $ex) {
