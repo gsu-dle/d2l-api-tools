@@ -127,7 +127,7 @@ class EnrollmentAPI extends D2LAPI
     }
 
      
-    public function getUserEnrollments(int $orgUnitId): void
+    public function getUserEnrollments(int $userId): void
     {
     }
 
