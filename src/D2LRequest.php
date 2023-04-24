@@ -180,6 +180,22 @@ class D2LRequest
     }
 
     /**
+     * @param string $data
+     * 
+     * @return string
+     */
+    public function itf8Convert(string $data): string
+    {
+        $convertedData = mb_convert_encoding(
+            $data, 
+            "UTF-8", 
+            mb_detect_encoding($data)
+        );
+        
+        return $convertedData;
+    }
+
+    /**
      * @param string $key
      * @param string $data
      * 
@@ -187,7 +203,7 @@ class D2LRequest
      */
     protected function base64hash(string $key, string $data): string
     {
-        $hash = base64_encode(hash_hmac("sha256", utf8_encode($data), utf8_encode($key), true));
+        $hash = base64_encode(hash_hmac("sha256", $this->itf8Convert($data), $this->itf8Convert($key), true));
         foreach (array("=" => "", "+" => "-", "/" => "_") as $search => $replace) {
             $hash = str_replace($search, $replace, $hash);
         }
