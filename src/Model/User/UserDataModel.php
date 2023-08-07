@@ -81,9 +81,9 @@ class UserDataModel extends D2LModel
      * This field will contain the system-definend pronouns for the user unless the user has chosen to set and display 
      * their own pronoun choices; in this latter case, this field will contain the user-defined pronoun choices.
      * 
-     * @var string $Pronouns
+     * @var string|null $Pronouns
      */
-    public string $Pronouns = '';
+    public ?string $Pronouns = '';
 
     /**
      * @param object $values
