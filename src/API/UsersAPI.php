@@ -193,6 +193,31 @@ class UsersAPI extends D2LAPI
     }
 
     /**
+     * Create a multiple user entities.
+     *  
+     * @param array<CreateUserDataModel> $newUserArray Data for new user.
+     * 
+     * @return int Number of Users Created
+     * 
+     * @see https://docs.valence.desire2learn.com/res/user.html#post--d2l-api-lp-(version)-users-batch-
+     */
+    public function createUserBatch(array $newUserArray) : int
+    {
+        $response = $this->callAPI(
+            product: 'lp',
+            action: 'POST',
+            route: "/users/batch/",
+            data: $newUserArray
+        );
+
+        if (!is_object($response->data)) {
+            throw new D2LExpectedObjectException(response: $response);
+        }
+
+        return count($response->data->CreatedUsers);
+    }
+
+    /**
      * Update data for a particular user.
      * 
      * @param int $userId User ID.

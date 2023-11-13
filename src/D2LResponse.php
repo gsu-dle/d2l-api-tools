@@ -21,7 +21,7 @@ use GAState\Tools\D2L\Exception\{
 
 /**
  * @package GAState\Tools\D2L
- * @access public
+ * @access  public
  */
 class D2LResponse
 {
@@ -119,6 +119,13 @@ class D2LResponse
                 if (strstr($contentType, 'application/json') !== false && $this->data === null) {
                     // TODO: need better exception?
                     throw new D2LGeneralServiceErrorException(response: $this);
+                }
+                return $this;
+            case 201: // Created
+                $contentType = $this->headers["content-type"] ?? '';
+                if (strstr($contentType, 'application/json') !== false && $this->data === null) {
+                    // TODO: need better exception?
+                        throw new D2LGeneralServiceErrorException(response: $this);
                 }
                 return $this;
             case 400: // Bad Request

@@ -134,8 +134,8 @@ class EnrollmentAPI extends D2LAPI
     /**
      * Get a user’s enrollment in a provided org unit.
      * 
-     * @param int $userId User ID
-     * @param int orgUnitId Org Unit ID
+     * @param int $userId    User ID
+     * @param int $orgUnitId Org Unit ID
      * 
      * @return EnrollmentDataModel 
      * 
