@@ -183,4 +183,24 @@ class EnrollmentAPI extends D2LAPI
 
         return new EnrollmentDataModel(values: $response->data);
     }
+
+    /**
+     * Enroll a multiple user entities.
+     *  
+     * @param array<CreateEnrollmentDataModel> $newEnrollmentArray Data for new user.
+     * 
+     * @return void
+     * 
+     * @see https://docs.valence.desire2learn.com/res/enroll.html#post--d2l-api-lp-(version)-enrollments-batch-
+     */
+    public function createEnrollmentBatch(array $newEnrollmentArray) : void
+    {
+        $response = $this->callAPI(
+            product: 'lp',
+            action: 'POST',
+            route: "/enrollments/batch/",
+            data: $newEnrollmentArray
+        );
+
+    }
 }

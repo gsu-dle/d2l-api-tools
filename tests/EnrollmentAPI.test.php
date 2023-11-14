@@ -12,7 +12,7 @@ use GAState\Tools\D2L\{
 
 global $d2l;
 
-require 'Bootstrap.php';
+require 'bootstrap.php';
 
 main: {
     $EnrollmentAPI = new EnrollmentAPI($d2l);
@@ -22,14 +22,16 @@ main: {
        
         //var_dump($EnrollmentAPI->getClassList(2273803));
 
-        $EnrollmentDataModel->OrgUnitId = 2273803;
-        $EnrollmentDataModel->UserId = 2015734;
-        $EnrollmentDataModel->RoleId = 783;
+        $EnrollmentDataModel->OrgUnitId = 2915419;
+        $EnrollmentDataModel->UserId = 1916347;
+        $EnrollmentDataModel->RoleId = 775;
 
-        var_dump($EnrollmentAPI->createEnrollment($EnrollmentDataModel));
+        //var_dump($EnrollmentAPI->createEnrollment($EnrollmentDataModel));
+        //var_dump($EnrollmentAPI->getEnrollment(2015734, 2273803));
 
-    
-        var_dump($EnrollmentAPI->getEnrollment(2015734, 2273803));
+        $enrollmentDataModelArray[] = $EnrollmentDataModel;
+
+        var_dump($EnrollmentAPI->createEnrollmentBatch($enrollmentDataModelArray));
 
 
     } catch (D2LResponseException $ex) {
