@@ -176,7 +176,7 @@ class D2LRequest
      */
     public function getURL(string $host): string
     {
-        return $host . $this->route . (count($this->params) > 0 ? '?' . http_build_query($this->params, '', null, PHP_QUERY_RFC3986) : '');
+        return $host . $this->route . (count($this->params) > 0 ? '?' . http_build_query($this->params, '', "&", PHP_QUERY_RFC3986) : '');
     }
 
     /**
